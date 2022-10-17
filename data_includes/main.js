@@ -109,16 +109,14 @@ customTrial = label => row =>
         .center()
         .lines(1)
         .size(400, 20)
-        .print()
-        .wait(getTextInput("qud").test.text(/^\w{3+}\?$/))
-        ,
+        .print()        ,
     // Submit button or proceed with Keypress (ENTER)
     newButton("submitQuDButton", "Submit question")
         .css("margin-top", "20px")
         .log()
         .center()
         .print()
-        .wait()
+        .wait(getTextInput("qud").test.text(/^\w{3+}\?$/))
 //    newKey("sendQuD", "Enter")
 //        .css("margin-top", "20px")
 //        .print()
