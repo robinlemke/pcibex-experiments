@@ -110,6 +110,7 @@ customTrial = label => row =>
         .lines(1)
         .size(400, 20)
         .print()
+        .wait(getTextInput("background").test.text(/^\w{3+}\?$/))
         ,
     // Submit button or proceed with Keypress (ENTER)
     newButton("submitQuDButton", "Submit question")
