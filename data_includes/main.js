@@ -4,13 +4,13 @@ PennController.ResetPrefix(null); // Shorten command names (keep this line here)
 DebugOff()   // Uncomment this line only when you are 100% done designing your experiment
 
 // First show instructions, then experiment trials, send results and show end screen
-// Sequence("consent", "instructions","paid", "practice", "main", shuffle(randomize("items"), randomize("filler"), randomize("sluicing")), SendResults(), "end")
+// Sequence("consent", "instructions","paid", "practice", "main", "items", SendResults(), "end")
 Sequence("items", SendResults(), "end")
 
 
 // This is run at the beginning of each trial
 Header(
-    // Declare a global Va r element "ID" in which we will store the participant's ID
+    // Declare a global Var element "ID" in which we will store the participant's ID
     newVar("ID").global()    
 )
 .log( "id" , getVar("ID") ) // Add the ID to all trials' results lines
@@ -52,7 +52,7 @@ newTrial("paid",
 newTrial("consent",
     newHtml("consent_form", "consent.html")
         .cssContainer({"width":"720px"})
-        .checkboxWarning("You must consent before continuing.")
+        .checkboxWarning("You must consent before continuing. Otherwise you cannot participate in the experiment.")
         .center()
         .print()
     ,
@@ -85,12 +85,12 @@ customTrial = label => row =>
             .left()
             .print()
         ,
-    newText("inputHelpPrior", "Which question will the next text chunk address?")
+    newText("inputHelpPrior", row.Type)
         .css("margin-top", "20px")
         .center()
         .print()
         ,
-    newTextInput("qudPrior", "")
+    newTextInput("qud", "")
         .log()
         .center()
         .lines(1)
@@ -103,46 +103,17 @@ customTrial = label => row =>
         .center()
         .print()
         .wait()
-        ,
-     getText("inputHelpPrior")
-        .remove()
-        ,
-     getTextInput("qudPrior")
-        .remove()
-        ,
-     getButton("submitQuDButton")
-        .remove()
-        ,
-     newText("inputHelpPost", "Which did the last text chunk address?")
-        .css("margin-top", "20px")
-        .center()
-        .print()
-        ,
-    newTextInput("qudPost", "")
-        .log()
-        .center()
-        .lines(1)
-        .size(400, 20)
-        .print()
-        ,
-    getButton("submitQuDButton")
-        .css("margin-top", "20px")
-        .log()
-        .center()
-        .print()
-        .wait()
 //    newKey("sendQuD", "Enter")
 //        .css("margin-top", "20px")
 //        .print()
 //        .wait()
     )
     // Speichere auch Bedingung, Token Set und Liste in der Antworttabelle
-    .log("condition", row.Condition)
-    .log("tokenset", row.TokenSet)
-    .log("group", row.List)
+    .log("type", row.Type)
+    .log("sentence", row.ID)
 
 // Übungsphase, Items und Filler ausführen
-Template("items_spr.csv", customTrial("items") )
+Template("stimuli.csv", customTrial("items") )
 
 // Final screen
 newTrial("end",
