@@ -85,6 +85,7 @@ customTrial = label => row =>
             .left()
             .print()
         ,
+    // Question: Check whether prior or posterior Q in item table and present corresponding question
     newVar("showQuestion")
            .set( row.Type )  
            .test.is( "prior" )
@@ -101,13 +102,16 @@ customTrial = label => row =>
             .print()
         )
         ,
+    // Text input
     newTextInput("qud", "")
+        .css("margin-top", "10px")
         .log()
         .center()
         .lines(1)
         .size(400, 20)
         .print()
         ,
+    // Submit button or proceed with Keypress (ENTER)
     newButton("submitQuDButton", "Submit question")
         .css("margin-top", "20px")
         .log()
@@ -133,7 +137,7 @@ newTrial("end",
         .print()
     ,
     // Prolific Code
-    newText("<p style='text-align:center'>Please enter this code on Prolific! <br/><b>82AA09AC</b></p>")
+    newText("<p style='text-align:center'>Please enter this code on Prolific! <br/><b>INSERT PROLIFIC CODE HERE</b></p>")
         .center()
         .print()
     ,
