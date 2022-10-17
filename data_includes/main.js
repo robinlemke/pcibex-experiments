@@ -85,10 +85,21 @@ customTrial = label => row =>
             .left()
             .print()
         ,
-    newText("inputHelpPrior", row.Type)
-        .css("margin-top", "20px")
-        .center()
-        .print()
+    newVar("showQuestion")
+           .set( row.Type )  
+           .test.is( "prior" )
+           .success(
+        newText("inputHelpPrior", "Which question will the next chunk answer?")
+            .css("margin-top", "20px")
+            .center()
+            .print()
+            )
+           .failure(
+        newText("inputHelpost", "Which question does this chunk answer?")
+            .css("margin-top", "20px")
+            .center()
+            .print()
+        )
         ,
     newTextInput("qud", "")
         .log()
@@ -108,11 +119,11 @@ customTrial = label => row =>
 //        .print()
 //        .wait()
     )
-    // Speichere auch Bedingung, Token Set und Liste in der Antworttabelle
+    // Write type of question produced and sentence ID to results table
     .log("type", row.Type)
     .log("sentence", row.ID)
 
-// Übungsphase, Items und Filler ausführen
+// Run trials
 Template("stimuli.csv", customTrial("items") )
 
 // Final screen
