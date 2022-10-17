@@ -125,7 +125,7 @@ customTrial = label => row =>
         .size(400, 20)
         .print()
         ,
-    getButton("submitQUDButton")
+    getButton("submitQuDButton")
         .css("margin-top", "20px")
         .log()
         .center()
