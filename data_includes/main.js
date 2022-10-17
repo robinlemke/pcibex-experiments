@@ -116,7 +116,7 @@ customTrial = label => row =>
         .log()
         .center()
         .print()
-        .wait(getTextInput("qud").test.text(/^\w{3+}\?$/))
+        .wait(getTextInput("qud").test.text(/^\w{2}.*\?$/))
 //    newKey("sendQuD", "Enter")
 //        .css("margin-top", "20px")
 //        .print()
