@@ -105,9 +105,11 @@ customTrial = label => row =>
         .wait()
         ,
      getText("inputHelpPrior")
-        .remove(),
+        .remove()
+        ,
      getTextInput("qudPrior")
-        .remove(),
+        .remove()
+        ,
      newText("inputHelpPost", "Which did the last text chunk address?")
         .css("margin-top", "20px")
         .center()
