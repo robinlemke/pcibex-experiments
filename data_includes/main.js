@@ -90,13 +90,13 @@ customTrial = label => row =>
            .set( row.Type )  
            .test.is( "prior")
            .success(
-        newText("inputHelpPrior", "Which question will the next chunk answer?")
+        newText("inputHelpPrior", "Which question <b>will the next chunk</b> answer?")
             .css("margin-top", "20px")
             .center()
             .print()
             )
            .failure(
-        newText("inputHelpost", "Which question does this chunk answer?")
+        newText("inputHelpost", "Which question <b>does this chunk</b> answer?")
             .css("margin-top", "20px")
             .center()
             .print()
