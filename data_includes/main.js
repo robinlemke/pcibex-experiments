@@ -85,12 +85,12 @@ customTrial = label => row =>
             .left()
             .print()
         ,
-    newText("inputHelp", "Which question will the next sentence address?")
-        .css("margin-bottom", "20px")
+    newText("inputHelpPrior", "Which question will the next text chunk address?")
+        .css("margin-top", "20px")
         .center()
         .print()
         ,
-    newTextInput("qud", "")
+    newTextInput("qudPrior", "")
         .log()
         .center()
         .lines(1)
@@ -99,6 +99,26 @@ customTrial = label => row =>
         ,
     newButton("submitQuDButton", "Submit question")
         .css("margin-top", "20px")
+        .log()
+        .center()
+        .print()
+        .wait()
+        ,
+     newText("inputHelpPost", "Which did the last text chunk address?")
+        .css("margin-top", "20px")
+        .center()
+        .print()
+        ,
+    newTextInput("qudPost", "")
+        .log()
+        .center()
+        .lines(1)
+        .size(400, 20)
+        .print()
+        ,
+    getKey("submitQUDButton")
+        .css("margin-top", "20px")
+        .log()
         .center()
         .print()
         .wait()
@@ -106,8 +126,6 @@ customTrial = label => row =>
 //        .css("margin-top", "20px")
 //        .print()
 //        .wait()
-        // Grammaticality Judgement
-        // Frage
     )
     // Speichere auch Bedingung, Token Set und Liste in der Antworttabelle
     .log("condition", row.Condition)
