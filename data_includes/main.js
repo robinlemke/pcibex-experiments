@@ -110,6 +110,9 @@ customTrial = label => row =>
      getTextInput("qudPrior")
         .remove()
         ,
+     getButton("submitQuDButton")
+        .remove()
+        ,
      newText("inputHelpPost", "Which did the last text chunk address?")
         .css("margin-top", "20px")
         .center()
@@ -149,7 +152,7 @@ newTrial("end",
     ,
     // Prolific Code
     newText("<p style='text-align:center'>Please enter this code on Prolific! <br/><b>82AA09AC</b></p>")
-        .center(httpshttps://github.com/robinlemke/pcibex_incremental_production/)
+        .center()
         .print()
     ,
     // Trick: stay on this trial forever (until tab is closed)
