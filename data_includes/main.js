@@ -88,7 +88,7 @@ customTrial = label => row =>
     // Question: Check whether prior or posterior Q in item table and present corresponding question
     newVar("showQuestion")
            .set( row.Type )  
-           .test.is( "prior" )
+           .test.is( "prior")
            .success(
         newText("inputHelpPrior", "Which question will the next chunk answer?")
             .css("margin-top", "20px")
@@ -116,7 +116,7 @@ customTrial = label => row =>
         .log()
         .center()
         .print()
-        .wait(getTextInput("qud").test.text(/^\w{2}.*\?$/))
+        .wait(getTextInput("qud").test.text(/^\w{2}.*$/))
 //    newKey("sendQuD", "Enter")
 //        .css("margin-top", "20px")
 //        .print()
