@@ -67,10 +67,10 @@ newTrial("consent",
 // Instructions
 newTrial("main",
     // Instructions
-    newText("main-text", "You have completed the practice phase. Please click on the button to start the main experiment.")
+    newText("main-text", "You will read the beginning of <b>What Mrs Simpson Knows About Immigrants</b> by Kinneson Lalor.")
     .center()
     .print(),
-    newButton("next", "Start the main experiment")
+    newButton("next", "Start the experiment")
         .center()
         .print()
         .wait()
