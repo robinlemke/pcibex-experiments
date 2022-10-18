@@ -108,7 +108,7 @@ customTrial = label => row =>
         .log()
         .center()
         .lines(1)
-        .size(400, 20)
+        .size(600, 20)
         .print()        ,
     // Submit button or proceed with Keypress (ENTER)
     newButton("submitQuDButton", "Submit question")
