@@ -29,7 +29,7 @@ newTrial("instructions",
 // Prolific ID
 newTrial("paid",
     // Remove instructions after button press
-    newText("paid-text", "Please type in your Prolific ID below before starting the practice phase.")
+    newText("paid-text", "Please type in your Prolific ID below before starting the experiment.")
         .center()
         .print()
     ,
@@ -38,7 +38,7 @@ newTrial("paid",
         .css("margin","1em")    // Add a 1em margin around this element
        .print()
     ,
-    newButton("start", "Start the practice phase")
+    newButton("start", "Continue")
         .center()
         .print()
         // Only validate a click on Start when inputID has been filled
