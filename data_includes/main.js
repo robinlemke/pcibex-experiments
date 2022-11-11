@@ -110,18 +110,25 @@ customTrial = label => row =>
         .lines(1)
         .size(600, 20)
         .print()        ,
+    // Hidden text box to scroll to bottom
+    newTextInput("hiddeninput", "")
+        .lines(0)
+        .size(0,0)
+        //.css("visibility", "hidden")
+        ,
     // Submit button or proceed with Keypress (ENTER)
-    newButton("submitQuDButton", "Submit question")
-        .css("margin-top", "20px")
-        .log()
-        .center()
-        .print()
-        .wait(getTextInput("qud").test.text(/^.*\w{1}.*$/))
-//    newKey("sendQuD", "Enter")
-//        .css("margin-top", "20px")
-//        .print()
-//        .wait()
-    )
+        newButton("submitQuDButton", "Submit question")
+            .css("margin-top", "20px")
+            .css("margin-bottom", "30px")
+            .log()
+            .center()
+            .print(),
+        getTextInput("hiddeninput")
+            .print()
+            .remove(),
+        getButton("submitQuDButton")
+            .wait(getTextInput("qud").test.text(/^.*\w{1}.*$/))
+            )
     // Write type of question produced and sentence ID to results table
     .log("type", row.Type)
     .log("sentence", row.ID)
